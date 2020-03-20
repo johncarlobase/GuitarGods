@@ -3,19 +3,21 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Guitarist.findAll({})
+    .then(function(dbGuitarist) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbGuitarist
       });
     });
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/guitarists/:id", function(req, res) {
+    db.Guitarist.findOne({ where: { id: req.params.id } })
+    .then(function(dbGuitarist) {
+      res.render("guitarists", {
+        example: dbGuitarist
       });
     });
   });
