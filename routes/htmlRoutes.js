@@ -13,10 +13,10 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/guitarists/:id", function(req, res) {
+  app.get("/guitarist/:id", function(req, res) {
     db.Guitarist.findOne({ where: { id: req.params.id } })
     .then(function(dbGuitarist) {
-      res.render("guitarists", {
+      res.render("Guitarist", {
         example: dbGuitarist
       });
     });

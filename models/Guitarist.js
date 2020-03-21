@@ -1,26 +1,9 @@
-module.exports = function(sequelize, DataTypes) {
-  var Guitarist = sequelize.define("guitarists", {
-    position: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    guitarist: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    genre: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    }
+module.exports = function Guitarist (sequelize, DataTypes) {
+  var Guitarist   = sequelize.define("Guitarist", {
+      position: DataTypes.INTEGER,
+      guitarist: DataTypes.STRING,
+      genre: DataTypes.STRING,
+      band: DataTypes.STRING
   });
   return Guitarist;
 };
