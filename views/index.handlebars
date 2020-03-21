@@ -1,11 +1,21 @@
 <div id="home">
-  <div class="container">
+   <div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Welcome to the Guitar Gods Top 100 Most Awesome Guitar Players of All Time!</h1>
+                <p class="lead">As Determined by the Rolling Stone Magaizne</p>
+            </div>
+        </div>
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+     
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          </div>
+           <div class="form-group">
             <label for="example-text">Example Text</label>
             <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
           </div>
@@ -17,7 +27,7 @@
         </form>
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
-          {{#each examples}}
+          {{#each guitarists}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="example/{{this.id}}">{{this.text}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
