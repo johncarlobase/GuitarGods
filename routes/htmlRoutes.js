@@ -4,9 +4,10 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Guitarist.findAll({}).then(function(dbGuitarist) {
+      console.log(dbGuitarist);
       res.render("index", {
         msg: "This is a message from the html routes file!!",
-        guitarists: dbGuitarist
+        artist: dbGuitarist
       });
     });
   });

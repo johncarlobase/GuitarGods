@@ -1,36 +1,58 @@
 <div id="home">
-   <div class="container-fluid">
+  <div class="container-fluid">
     <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Welcome to the Guitar Gods Top 100 Most Awesome Guitar Players of All Time!</h1>
-                <p class="lead">As Determined by the Rolling Stone Magaizne</p>
-            </div>
+      <div class="container">
+        <h1 class="display-4">Welcome to the Guitar Gods Top 100 Most Awesome Guitar Players of All Time!</h1>
+        <p class="lead">As Determined by the Rolling Stone Magaizne</p>
+      </div>
+    </div>
+
+    <div class="col bg-success">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Display All</h5>
+          <p class="card-text">We want be able to Display All Guitarists</p>
+          <ul id="example-list" class="list-group">
+            {{#each artist}}
+            <li data-id="{{this.position}}" class="list-group-item">
+              <a href="index/{{this.position}}">{{this.guitarist}}</a>
+            </li>
+            {{/each}}
+          </ul>
+
+          <button id="submit" class="btn btn-primary">Submit</button>
         </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-     
+
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+              placeholder="Enter Example Text">
           </div>
-           <div class="form-group">
+          <div class="form-group">
             <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+              placeholder="Enter Example Text">
           </div>
           <div class="form-group">
             <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description"
+              placeholder="Enter Example Description"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
-          {{#each guitarists}}
+          {{#each guitarist}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <a href="index/{{this.id}}">{{this.text}}</a>
+            <button id="submit" class="btn btn-primary">Submit</button>
           </li>
           {{/each}}
         </ul>
