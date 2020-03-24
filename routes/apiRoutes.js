@@ -1,14 +1,14 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all guitarists
+  //API ROUTE WORKS Get all guitarists
   app.get("/api/guitarist", function(req, res) {
     db.Guitarist.findAll().then(function(dbGuitarist) {
       res.json(dbGuitarist);
     });
   });
 
-  // Create a new guitarist
+  //API ROUTE WORKS Create a new guitarist
   app.post("/api/guitarist", function(req, res) {
     console.log(req.body);
     db.Guitarist.create(req.body).then(function(dbGuitarist) { 
@@ -16,7 +16,7 @@ module.exports = function(app) {
     });
   });
 
-  // Delete an gutiarist by id
+  //API ROUTE WORKS Delete an gutiarist by id
   app.delete("/api/guitarist/:id", function(req, res) {
     db.Guitarist.destroy({ where: { id: req.params.id } })
     .then(function(dbGuitarist) {
@@ -25,7 +25,7 @@ module.exports = function(app) {
   });
 //NEW API ROUTES*********************************************************************************
 
-// Get route for retrieving a specific guitarist 
+// API ROUTE WORKS Get route for retrieving a specific guitarist 
 app.get("/api/guitarist/:id?", function(req, res) {
   db.Guitarist.findOne({
     where: {
@@ -37,7 +37,9 @@ app.get("/api/guitarist/:id?", function(req, res) {
     });
 });
 
-// Get route for retrieving a guitarist of a specific rank
+
+
+//APIT ROUTE WORKS Get route for retrieving a guitarist of a specific rank
 app.get("/api/guitarist/position/:position", function(req, res) {
   db.Guitarist.findOne({
     where: {
@@ -49,7 +51,7 @@ app.get("/api/guitarist/position/:position", function(req, res) {
     });
 });
 
-// Get route for returning guitarist of a specific position genre
+//API ROUTE WORKS Get route for returning guitarist of a specific position genre
   app.get("/api/guitarist/genre/:genre", function(req, res) {
     db.Guitarist.findAll({
       where: {
@@ -61,7 +63,24 @@ app.get("/api/guitarist/position/:position", function(req, res) {
       });
   });
 
-// Get route for returning guitarist by name
+
+//API ROUTE WORKS Get route for returning guitarist of a specific Band
+app.get("/api/guitarist/band/:band", function(req, res) {
+  db.Guitarist.findAll({
+    where: {
+      band: req.params.band
+    }
+  })
+    .then(function(dbGuitarist) {
+      res.json(dbGuitarist);
+    });
+});
+
+
+
+
+
+//API ROUTE WORKS Get route for returning guitarist by name
 app.get("/api/guitarist/name/:name", function(req, res) {
   db.Guitarist.findOne({
     where: {
