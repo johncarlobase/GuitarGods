@@ -1,120 +1,111 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function () {
+  console.log("ready!");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/guitarist",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
+  // When user hits the search-btn
+  $("#search-btn").on("click", function (event) {
+    event.preventDefault();
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+    // Save the guitarist rank they typed into the search input
+    var rankSearch = $("#rank-search").val().trim();
+    console.log("This is the search result: " + rankSearch);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
+
+    // Make an AJAX get request to our api, including the user's Guitarist  in the url
+    $.get("/api/guitarist/position/" + rankSearch, function (data) {
+
+    }).then(function (data) {
+      if (data) {
+        $("#stats").empty();
+      }
+      console.log(data)
+      renderGuitarist(data);
+    })
+
+  });
+
+  // When user hits the guitar-search-btn
+  $("#guitar-search-btn").on("click", function () {
+    event.preventDefault();
+   
+    // Save the author they typed into the author-search input
+    var playerSearched = $("#guitar-search").val().trim();
+    console.log("This is the search result: " + playerSearched);
+   
+    // Make an AJAX get request to our api, including the user's author in the url
+    $.get("/api/guitarist/name/" + playerSearched, function (data) {
+      if (data) {
+        $("#stats").empty();
+      }
+
+      // Log the data to the console
+      console.log(data);
+   // Call our renderGuitarist function to add our Guitarists to the page
+      renderGuitarist(data);
+
+    });
+
+  });
+
+  // When user hits the genre-search-btn
+  $("#band-search-btn").on("click", function () {
+    event.preventDefault();
+   
+    // Save the band the user typed into the band input
+    var bandSearch = $("#band-search").val().trim();
+    console.log("This is the search result: " + bandSearch);
+   
+    // Make an AJAX get request to our api, including the band request in the url
+    $.get("/api/guitarist/band/" + bandSearch, function (data) {
+
+      if (data) {
+        $("#stats").empty();
+      }
+
+     // Log the data to the console
+      console.log(data)
+        // Call our renderGuitarist function to add our Guitarists to the page
+      
+        return data.map(guitarist => {
+
+          renderGuitarist(guitarist);
         })
-        .append($a);
+    })
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
 
-      $li.append($button);
-
-      return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
   });
-};
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var displayAllSubmit = function(event) {
-  event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+  function renderGuitarist(data) {
+    if (data.length !== 0) {
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
+      $("#stats").show();
+
+      var div = $("<div>");
+
+      div.append("<h2>" + data.position + "</h2>");
+      div.append("<p>Rank: " + data.position + "</p>");
+      div.append("<p>Guitarist: " + data.guitarist + "</p>");
+      div.append("<p>Genre: " + data.genre + "</p>");
+      div.append("<p>Band: " + data.band + "</p>");
+      div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
+
+      $("#stats").append(div);
+    }
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  $(".delete").click(function () {
+
+    $.ajax({
+        method: "DELETE",
+        url: "/api/player/" + $(this).attr("data-id")
+      })
+      // On success, run the following code
+      .then(function () {
+        console.log("Deleted Successfully!");
+      });
+
+    $(this).closest("div").remove();
+
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-// // handleFormSubmit is called whenever we submit a new example
-// // Save the new example to the db and refresh the list
-// var handleFormSubmit = function(event) {
-//   event.preventDefault();
-
-//   var example = {
-//     text: $exampleText.val().trim(),
-//     description: $exampleDescription.val().trim()
-//   };
-
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
-//   }
-
-//   API.saveExample(example).then(function() {
-//     refreshExamples();
-//   });
-
-//   $exampleText.val("");
-//   $exampleDescription.val("");
-// };
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-//$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click");
