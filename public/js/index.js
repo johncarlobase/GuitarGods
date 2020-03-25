@@ -73,8 +73,40 @@ $(document).ready(function () {
 
 
     });
+  
 
-  });
+  // When user hits the genre-search-btn
+  $("#genre-search-btn").on("click", function () {
+    event.preventDefault();
+   
+    // Save the band the user typed into the band input
+    var genreSearch = $("#genre-search").val().trim();
+    console.log("This is the search result: " + genreSearch);
+   
+    // Make an AJAX get request to our api, including the band request in the url
+    $.get("/api/guitarist/genre/" + genreSearch, function (data) {
+
+      if (data) {
+        $("#stats").empty();
+      }
+
+     // Log the data to the console
+      console.log(data)
+        // Call our renderGuitarist function to add our Guitarists to the page
+      
+        return data.map(guitarist => {
+
+          renderGuitarist(guitarist);
+        })
+    })
+
+
+    });
+
+
+
+
+ 
 
   function renderGuitarist(data) {
     if (data.length !== 0) {
@@ -108,4 +140,4 @@ $(document).ready(function () {
     $(this).closest("div").remove();
 
   });
-
+})
