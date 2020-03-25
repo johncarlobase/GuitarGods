@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password":"Balrog#666",
+    "password":"zoey1222",
     "database": "guitar_db",
     "host": "localhost",
     "dialect": "mysql"
