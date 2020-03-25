@@ -26,7 +26,7 @@ module.exports = function(app) {
 
  });
 
- app.get("/lastFm", function(req, res) {
+ app.get("/long", function(req, res) {
     
   // console.log(dbGuitarist);
    res.render("lastFm")

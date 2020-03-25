@@ -75,6 +75,7 @@
 <script>
 
 $(document).ready(function() {
+  var api_key = process.env.API_KEY;
 
 
 $('#find-gtr').on("click", function (event) {
@@ -89,7 +90,7 @@ $('#find-gtr').on("click", function (event) {
     url: 'http://ws.audioscrobbler.com/2.0/',
     data: 'method=artist.getinfo&' +
       'artist='+inputGtr+'&' +
-      'api_key=57ee3318536b23ee81d6b27e36997cde&' +
+      api_key +
       'format=json',
     dataType: 'jsonp',
     success: function (data) {
@@ -109,10 +110,7 @@ $('#find-gtr').on("click", function (event) {
   $.ajax({
     type: 'POST',
     url: 'http://ws.audioscrobbler.com/2.0/',
-    data: 'method=artist.gettoptracks&' +
-      'artist='+inputGtr+'&' +
-      'api_key=57ee3318536b23ee81d6b27e36997cde&' +
-      'format=json',
+    data: 'method=artist.gettoptracks&' + 'artist='+inputGtr+'&' + api_key + 'format=json',
     dataType: 'jsonp',
     success: function (data) {
       $("#topTracks").html("Top Five Tracks")
@@ -138,10 +136,7 @@ $('#find-gtr').on("click", function (event) {
   $.ajax({
     type: 'POST',
     url: 'http://ws.audioscrobbler.com/2.0/',
-    data: 'method=artist.gettopalbums&' +
-      'artist='+inputGtr+'&' +
-      'api_key=57ee3318536b23ee81d6b27e36997cde&' +
-      'format=json',
+    data: 'method=artist.gettopalbums&' + 'artist=' + inputGtr + '&' + api_key + 'format=json',
     dataType: 'jsonp',
     success: function (data) {
       $("#topAlbums").html("Top Five Albums")
@@ -168,7 +163,7 @@ $('#find-gtr').on("click", function (event) {
     url : 'http://ws.audioscrobbler.com/2.0/',
     data : 'method=artist.getsimilar&' +
            'artist='+inputGtr+'&' +
-           'api_key=57ee3318536b23ee81d6b27e36997cde&' +
+           api_key +
            'format=json',
     dataType : 'jsonp',
     success : function(data) {
