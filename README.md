@@ -1,4 +1,4 @@
-![guitar logo](img/gif1.png)
+![guitar logo](img/gg2.JPG)
 
 # GuitarGods
 Is designed for the admitted guitar geek. See all that is in the Rolling Stones List.  Search rank, name, genre, band.   Add your own if you think you can give it more justice!
@@ -18,13 +18,14 @@ https://guitargod.herokuapp.com/
 
 
 **Technologies
-+Node
-+javascript
-+css
-+handlebars
-+sequelize
-+mysql
-+heroku
+---
++ Node
++ javascript
++ css
++ handlebars
++ sequelize
++ mysql
++ heroku
 
 **Acknowledgements**
 ---
