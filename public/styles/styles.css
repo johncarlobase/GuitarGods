@@ -1,3 +1,68 @@
-.list-group-item {
-  line-height: 2.5;
-}
+body {
+  background-color: black;
+  background-image: src'XXXGuitarGodsXXX/img/Gtr8.jpg';
+ 
+
+  }
+  
+  .jumbotron {
+    background-image: url('img/Gtr3.jpg');
+    text-align: center;
+    background-size: cover;
+	  background-color: rgba(21, 21, 41, 0.584);
+	  color: #8eb1c7;
+	  padding: 30px 0px;
+  }
+  
+  #title {
+	  font-size: 100px;
+	  letter-spacing: 10px;
+  }
+  
+  .heading {
+    color: #8eb1c7;
+	  padding-top: 25px;
+	  padding-bottom: 20px;
+  }
+  
+  .form-control {
+    background-color: darkgray;
+    opacity: 1;
+  }
+
+   .card {
+     background-color: black;
+   }
+
+   .card-header {
+     color: darkcyan;
+   }
+
+   .result {
+     color: darkcyan;
+   }
+   .well {
+     color: darkcyan;
+   }
+
+   .delete {
+    color: yellow;
+    background-color: black;
+  }
+
+  .form-group {
+    color: darkcyan;
+  }
+
+  #add-btn {
+    background-color: darkcyan;
+  }
+
+  #btn-danger {
+    background-color: darkcyan;
+  }
+  /* .jumbotron{
+    background-image: url('path/image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }  */
