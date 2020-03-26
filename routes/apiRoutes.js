@@ -54,6 +54,17 @@ app.get("/api/guitarist/position/:position", function(req, res) {
         res.json(dbGuitarist);
       });
   });
+// Get route for returning guitarist of a specific band
+  app.get("/api/guitarist/band/:band", function(req, res) {
+    db.Guitarist.findAll({
+      where: {
+        band: req.params.band
+      }
+    })
+      .then(function(dbGuitarist) {
+        res.json(dbGuitarist);
+      });
+  });
 // Get route for returning guitarist by name
 app.get("/api/guitarist/name/:name", function(req, res) {
   db.Guitarist.findOne({

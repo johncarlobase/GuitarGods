@@ -65,14 +65,12 @@ $(document).ready(function () {
       console.log(data)
         // Call our renderGuitarist function to add our Guitarists to the page
       
-        return data.map(guitarist => {
+      return data.map(guitarist => {
 
-          renderGuitarist(guitarist);
-        })
+        renderGuitarist(guitarist);
+      })
     })
-
-
-    });
+  });
   
 
     // When user hits the genre-search-btn
@@ -99,12 +97,9 @@ $(document).ready(function () {
             renderGuitarist(guitarist);
           })
       })
+    });
 
-
-      });
-
-
-  });
+});
 
 
   function renderGuitarist(data) {
@@ -138,4 +133,4 @@ $(document).ready(function () {
     $(this).closest("div").remove();
 
   });
-})
+

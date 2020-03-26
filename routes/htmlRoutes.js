@@ -29,10 +29,17 @@ module.exports = function(app) {
 
  });
 
- app.get("/long", function(req, res) {
+ app.get("/lastfm", function(req, res) {
     
   // console.log(dbGuitarist);
    res.render("lastFm")
+
+});
+
+ app.get("/add", function(req, res) {
+    
+  // console.log(dbGuitarist);
+   res.render("add")
 
 });
 
