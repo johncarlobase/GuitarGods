@@ -1,6 +1,5 @@
 <div class="container">
 
-
         <div class="jumbotron">
 
             <h1 id="title"><span>Guitar Gods Database</span></h1>
@@ -15,10 +14,8 @@
                     <span class="fa fa-th-list"></span> LastFm</a>
                 <a href="/update" class="btn btn-danger btn-lg">
                     <span class="fa fa-th-list"></span> Update</a>
-
             </div>
         </div>
-
 
 
 
@@ -41,10 +38,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!--First column start-->
-
 
             <div class="col-3 bg">
                 <!--Second column End-->
@@ -61,10 +56,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!--Second column End-->
-
 
             <!--Third column Start-->
             <div class="col-3 bg">
@@ -81,7 +74,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!--Third column End-->
 
@@ -126,13 +118,5 @@
 
         </div>
         <!--Jumbortron End Div-->
-
     </div>
-    <!--Containter End Div-->
-
-
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+    <!--Containter End Div--></div>

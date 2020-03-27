@@ -19,8 +19,30 @@ module.exports = function(app) {
 
   app.get("/all", function(req, res) {
     // console.log(dbGuitarist);
-    res.render("all");
+
+     res.render("all")
+
+ });
+
+ app.get("/lastFm", function(req, res) {
+    
+  // console.log(dbGuitarist);
+   res.render("lastFm")
   });
+  
+  app.get("/update", function(req, res) {
+    
+    // console.log(dbGuitarist);
+     res.render("update")
+
+});
+
+
+
+
+
+
+
 
   app.get("/lastFm", function(req, res) {
     // console.log(dbGuitarist);

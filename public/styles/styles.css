@@ -1,68 +1,60 @@
-body {
-  background-color: black;
-  background-image: src'XXXGuitarGodsXXX/img/Gtr8.jpg';
- 
 
-  }
-  
-  .jumbotron {
-    background-image: url('img/Gtr3.jpg');
-    text-align: center;
-    background-size: cover;
-	  background-color: rgba(21, 21, 41, 0.584);
-	  color: #8eb1c7;
-	  padding: 30px 0px;
-  }
-  
-  #title {
-	  font-size: 100px;
-	  letter-spacing: 10px;
-  }
-  
-  .heading {
-    color: #8eb1c7;
-	  padding-top: 25px;
-	  padding-bottom: 20px;
-  }
-  
-  .form-control {
-    background-color: darkgray;
-    opacity: 1;
-  }
+h1{
 
-   .card {
-     background-color: black;
-   }
+/*font-family: 'Righteous', cursive;
+font-family: 'Playfair Display SC', serif;
+font-family: 'Cinzel Decorative', cursive;*/
+font-family: 'UnifrakturMaguntia', cursive;
+/*font-family: 'New Rocker', cursive;*/
 
-   .card-header {
-     color: darkcyan;
-   }
+}
 
-   .result {
-     color: darkcyan;
-   }
-   .well {
-     color: darkcyan;
-   }
+#title{
+  text-align: center;
+  font-size: 128px;
+  color:white;
+}
 
-   .delete {
-    color: yellow;
-    background-color: black;
-  }
+#subtitle{
+  text-align: center;
+  font-family: 'Cinzel Decorative', cursive;
+  color:white;
+}
 
-  .form-group {
-    color: darkcyan;
-  }
 
-  #add-btn {
-    background-color: darkcyan;
-  }
+.jumbotron{
+background: #000;
+padding: 32px 32px;
+}
+.wrapper{ 
+  margin:  auto 0;
+}
 
-  #btn-danger {
-    background-color: darkcyan;
-  }
-  /* .jumbotron{
-    background-image: url('path/image.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }  */
+span{
+  display: block;
+  background-image: url(/images/fire2.jpg);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color:transparent;
+  -webkit-animation:fire 5s linear infinite;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes fire {
+  0%{background-position: 0% -50%;}
+  0%{background-position: 100% -50%;}
+}
+
+.clicks{
+  text-align: center;
+}
+
+.card-header{
+background-color: darkkhaki;
+font-weight: bold;
+
+}
+
+.hide-alert {
+  display: none;
+}
+

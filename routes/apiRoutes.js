@@ -17,22 +17,26 @@ module.exports = function(app) {
   });
 
   //API ROUTE WORKS Delete an gutiarist by id
-  app.delete("/api/guitarist/:id", function(req, res) {
-    db.Guitarist.destroy({ where: { id: req.params.id } }).then(function(
-      dbGuitarist
-    ) {
+
+  app.delete("/api/guitarist/id/:id", function(req, res) {
+    db.Guitarist.destroy({ where: { id: req.params.id } })
+    .then(function(dbGuitarist) {
+
       res.json(dbGuitarist);
     });
   });
   //NEW API ROUTES*********************************************************************************
 
-  // API ROUTE WORKS Get route for retrieving a specific guitarist
-  app.get("/api/guitarist/:id?", function(req, res) {
-    db.Guitarist.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
+
+// API ROUTE WORKS Get route for retrieving a specific guitarist 
+app.get("/api/guitarist/id/:id?", function(req, res) {
+  db.Guitarist.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(dbPost) {
+
       res.json(dbPost);
     });
   });
@@ -99,7 +103,11 @@ module.exports = function(app) {
   app.put("/api/guitarist", function(req, res) {
     db.Guitarist.update(req.body, {
       where: {
-        position: req.body.position
+        position: req.body.position,
+        guitarist: req.body.guitarist,
+        genre: req.body.genre,
+        band: req.body.band
+
       }
     }).then(function(dbGuitarist) {
       res.json(dbGuitarist);
