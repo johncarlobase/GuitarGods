@@ -74,6 +74,7 @@ return data.map(guitarist => {
 });
 
 
+
 // When user hits the genre-search-btn
 $("#genre-search-btn").on("click", function () {
 event.preventDefault();
@@ -92,6 +93,7 @@ console.log("This is the search result: " + genreSearch);
 // Log the data to the console
 console.log(data)
 // Call our renderGuitarist function to add our Guitarists to the page
+
 
 return data.map(guitarist => {
   renderGuitarist(guitarist);
@@ -152,3 +154,4 @@ function renderGuitarist(data) {
 
 
 })
+

@@ -4,24 +4,22 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Guitarist.findAll({}).then(function(dbGuitarist) {
-     // console.log(dbGuitarist);
+      // console.log(dbGuitarist);
       res.render("index", {
-        msg: "This is a message from the html routes file!!",
+        msg: "Guitar Gods",
         artist: dbGuitarist
       });
     });
   });
 
   app.get("/add", function(req, res) {
-    
-     // console.log(dbGuitarist);
-      res.render("add")
- 
+    // console.log(dbGuitarist);
+    res.render("add");
   });
 
   app.get("/all", function(req, res) {
-    
     // console.log(dbGuitarist);
+
      res.render("all")
 
  });
@@ -45,14 +43,9 @@ module.exports = function(app) {
 
 
 
+
+  app.get("/lastFm", function(req, res) {
+    // console.log(dbGuitarist);
+    res.render("lastFm");
+  });
 };
-
-
-
-
-
-
-
-
-
-  
