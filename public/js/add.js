@@ -2,7 +2,7 @@
 /// When user clicks add-btn
 $("#add-btn").on("click", function(event) {
   event.preventDefault();
-alert("test!");
+
  // Make a newBook object
   var newPlayer = {
     position: $("#position").val().trim(),
@@ -19,6 +19,10 @@ alert("test!");
  .then(function(data) {
    // Log the data we found
    console.log(data);
+
+   if (data) {
+     $(".hide-alert").css("display", "block");
+   }
  });
 
   // Empty each input box by replacing the value with an empty string
@@ -27,4 +31,5 @@ alert("test!");
   $("#genre").val("");
   $("#band").val("");
 
+  $('#exampleModal').modal('show');
 });

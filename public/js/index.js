@@ -26,11 +26,11 @@ $(document).ready(function () {
   // When user hits the guitar-search-btn
   $("#guitar-search-btn").on("click", function () {
     event.preventDefault();
-   
+
     // Save the author they typed into the author-search input
     var playerSearched = $("#guitar-search").val().trim();
     console.log("This is the search result: " + playerSearched);
-   
+
     // Make an AJAX get request to our api, including the user's author in the url
     $.get("/api/guitarist/name/" + playerSearched, function (data) {
       if (data) {
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
       // Log the data to the console
       console.log(data);
-   // Call our renderGuitarist function to add our Guitarists to the page
+      // Call our renderGuitarist function to add our Guitarists to the page
       renderGuitarist(data);
 
     });
@@ -49,11 +49,11 @@ $(document).ready(function () {
   // When user hits the genre-search-btn
   $("#band-search-btn").on("click", function () {
     event.preventDefault();
-   
+
     // Save the band the user typed into the band input
     var bandSearch = $("#band-search").val().trim();
     console.log("This is the search result: " + bandSearch);
-   
+
     // Make an AJAX get request to our api, including the band request in the url
     $.get("/api/guitarist/band/" + bandSearch, function (data) {
 
@@ -61,28 +61,27 @@ $(document).ready(function () {
         $("#stats").empty();
       }
 
-     // Log the data to the console
+      // Log the data to the console
       console.log(data)
-        // Call our renderGuitarist function to add our Guitarists to the page
-      
-        return data.map(guitarist => {
+      // Call our renderGuitarist function to add our Guitarists to the page
 
-          renderGuitarist(guitarist);
-        })
+      return data.map(guitarist => {
+        renderGuitarist(guitarist);
+      })
     })
 
 
-    });
-  
+  });
+
 
   // When user hits the genre-search-btn
   $("#genre-search-btn").on("click", function () {
     event.preventDefault();
-   
+
     // Save the band the user typed into the band input
     var genreSearch = $("#genre-search").val().trim();
     console.log("This is the search result: " + genreSearch);
-   
+
     // Make an AJAX get request to our api, including the band request in the url
     $.get("/api/guitarist/genre/" + genreSearch, function (data) {
 
@@ -90,54 +89,63 @@ $(document).ready(function () {
         $("#stats").empty();
       }
 
-     // Log the data to the console
+      // Log the data to the console
       console.log(data)
-        // Call our renderGuitarist function to add our Guitarists to the page
-      
-        return data.map(guitarist => {
+      // Call our renderGuitarist function to add our Guitarists to the page
 
-          renderGuitarist(guitarist);
-        })
+      return data.map(guitarist => {
+        renderGuitarist(guitarist);
+      })
     })
 
 
-    });
+  });
 
 
 
 
- 
+
 
   function renderGuitarist(data) {
     if (data.length !== 0) {
-
       $("#stats").show();
-
       var div = $("<div>");
-
-      div.append("<h2>" + data.position + "</h2>");
+      div.addClass("card-mb4")
+      div.addClass("card-header")
+      $('.searchResult').html(" Search Results:")
+      div.addClass("card-body")
       div.append("<p>Rank: " + data.position + "</p>");
       div.append("<p>Guitarist: " + data.guitarist + "</p>");
       div.append("<p>Genre: " + data.genre + "</p>");
       div.append("<p>Band: " + data.band + "</p>");
       div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
-
       $("#stats").append(div);
+      $(".delete").click(function () {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/guitarist/id/" + $(this).attr("data-id")
+          })
+          // On success, run the following code
+          .then(function () {
+            console.log("Deleted Successfully!");
+          });
+        $(this).closest("div").remove();
+      });
     }
   }
 
-  $(".delete").click(function () {
 
-    $.ajax({
-        method: "DELETE",
-        url: "/api/player/" + $(this).attr("data-id")
-      })
-      // On success, run the following code
-      .then(function () {
-        console.log("Deleted Successfully!");
-      });
 
-    $(this).closest("div").remove();
 
-  });
+
+
+
+
+
+
+
+
+
+
+
 })

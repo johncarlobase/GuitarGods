@@ -30,6 +30,12 @@ module.exports = function(app) {
     
   // console.log(dbGuitarist);
    res.render("lastFm")
+  });
+  
+  app.get("/update", function(req, res) {
+    
+    // console.log(dbGuitarist);
+     res.render("update")
 
 });
 

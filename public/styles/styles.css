@@ -1,3 +1,58 @@
-.list-group-item {
-  line-height: 2.5;
+h1{
+
+/*font-family: 'Righteous', cursive;
+font-family: 'Playfair Display SC', serif;
+font-family: 'Cinzel Decorative', cursive;*/
+font-family: 'UnifrakturMaguntia', cursive;
+/*font-family: 'New Rocker', cursive;*/
+
+}
+
+#title{
+  text-align: center;
+  font-size: 128px;
+  color:white;
+}
+
+#subtitle{
+  text-align: center;
+  font-family: 'Cinzel Decorative', cursive;
+  color:white;
+}
+
+
+.jumbotron{
+background: #000;
+padding: 32px 32px;
+}
+.wrapper{ 
+  margin:  auto 0;
+}
+
+span{
+  display: block;
+  background-image: url(/images/fire2.jpg);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color:transparent;
+  -webkit-animation:fire 5s linear infinite;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes fire {
+  0%{background-position: 0% -50%;}
+  0%{background-position: 100% -50%;}
+}
+
+.clicks{
+  text-align: center;
+}
+
+.card-header{
+background-color: darkkhaki;
+font-weight: bold;
+
+}
+
+.hide-alert {
+  display: none;
 }
