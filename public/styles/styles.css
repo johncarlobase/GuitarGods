@@ -23,7 +23,7 @@ font-family: 'UnifrakturMaguntia', cursive;
 
 
 .jumbotron{
-background: #000;
+background: transparent;
 padding: 32px 32px;
 }
 .wrapper{ 
@@ -32,10 +32,10 @@ padding: 32px 32px;
 
 span{
   display: block;
-  background-image: url(/images/fire2.jpg);
+  background-image: url(/images/AdobeStock_129467694.jpeg);
   -webkit-background-clip: text; 
   -webkit-text-fill-color:transparent;
-  -webkit-animation:fire 5s linear infinite;
+  -webkit-animation:fire 8s linear infinite;
   -webkit-backface-visibility: hidden;
 }
 
@@ -58,3 +58,6 @@ font-weight: bold;
   display: none;
 }
 
+body{
+  background-image: url(/images/gtrs.PNG);
+}
