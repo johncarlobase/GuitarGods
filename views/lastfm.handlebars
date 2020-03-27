@@ -1,27 +1,130 @@
-<!doctype html>
-<html>
-<head>
-<title>Get the top artists and their playcounts using last.fm API</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-</head>
-<body>
+  <div class="container">
 
- <div class="col bg-warning">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Search for Guitarist</h4>
-                        <!-- This form will be where users input data about the guitarists -->
-                        <form id="gtr-form" action="display.html" method="GET">
-                            <label for="gtr-input" name="serial number" id="input">We want to be able to Search for a
-                                particular Guitarist</label>
-                            <input type="text" id="gtr-input">
-                            <!-- This button will trigger our AJAX call -->
-                            <input id="find-gtr" type="submit" value="Search">
-                        </form>
-                        <br>
+        <div class="jumbotron">
+          <h1 id = "title">Guitar Gods</h1>
+      <h3 id = "subtitle" >GUITARS GUITARS GUITARS!</h3>
+      <hr>
+      <div class="clicks">
+      <a href="/" class="btn btn-danger btn-lg">
+        <span class="fa fa-eye"></span> Search GTR Players</a>
+      <a href="/add" class="btn btn-danger btn-lg">
+        <span class="fa fa-plus"></span> Add New Player</a>
+      <a href="/all" class="btn btn-danger btn-lg">
+        <span class="fa fa-th-list"></span> All Guitarists</a>
+      <a href="/lastfm" class="btn btn-danger btn-lg">
+        <span class="fa fa-th-list"></span> Last Fm</a>
+      <a href="/update" class="btn btn-danger btn-lg">
+        <span class="fa fa-th-list"></span> Update</a>
+    </div>
+        </div>
+
+<div class="row"><!--Start roW-->
+        <div class="col-6 bg">
+            <!--Second column End-->
+            <div class="card mb-4">
+                <div class="card-header">
+                    Guitar Player Search
+                </div>
+                <div class="card-body">
+                    <input type="text" id="guitar-search" class="form-control">
+                    <br>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-md" id="guitar-search-btn">
+                            <span class="fa fa-search"></span> Search</button>
                     </div>
                 </div>
             </div>
+        </div>
+        <!--Second column End-->
+
+        <!--Third column Start-->
+        <div class="col-6 bg">
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>Player Search Results</h3>
+            </div>
+            <div class="card-body">
+                <div class="well" id="stats">
+                    <h2 id="position">Guitarist:</h2>
+                    <div>
+                        <h6>
+                            <strong>Player</strong>
+                            <span id="player"></span>
+                        </h6>
+                        <h6>
+                            <strong>Genre:</strong>
+                            <span id="genre"></span>
+                        </h6>
+                        <h6>
+                            <strong>Band:</strong>
+                            <span id="band"></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div> <!--Jumbortron End Div-->
+    </div>  <!--Containter End Div-->
+
+<!--Last Fm CODE ***************************************************************************************************************************************-->
+
+         <div class="col bg-warning">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Search for Guitarist</h4>
+                    <!-- This form will be where users input data about the guitarists -->
+                    <form id="gtr-form" action="display.html" method="GET">
+                        <label for="gtr-input" name="serial number" id="input">We want to be able to Search for a
+                            particular Guitarist</label>
+                        <input type="text" id="gtr-input">
+                        <!-- This button will trigger our AJAX call -->
+                        <input id="find-gtr" type="submit" value="Search">
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class=container>
+            <div id="success">
+               <strong> <div id="artistName"></div></strong>
+                <br>
+                <div id="topAlbum5img"></div>
+
+                <strong><p id="topTracks"></p></strong>
+                <div id="topTrack1"></div>
+                <div id="topTrack2"></div>
+                <div id="topTrack3"></div>
+                <div id="topTrack4"></div>
+                <div id="topTrack5"></div>
+                <br>
+                 <strong> <p id="topAlbums"></p></strong>
+                <div id="topAlbum1"></div>
+                <div id="topAlbum2"></div>
+                <div id="topAlbum3"></div>
+                <div id="topAlbum4"></div>
+                <div id="topAlbum5"></div>
+                <br>
+                 <strong> <p id="statsFM"></p></strong>
+                <div id="artistListeners"></div>
+                <div id="artistPlaycount"></div>
+                
+                <br>
+
+                 <strong> <p id="bands"></p></strong>
+                <div id="similar1"></div>
+                <div id="similar2"></div>
+                <div id="similar3"></div>
+                <div id="similar4"></div>
+                <div id="similar5"></div>
+
+                <br>
+                 <strong> <p id="bio"></p></strong>
+                <div id="artistBio"></div>
+
+            </div>
+        </div>
 
 
 
@@ -29,175 +132,8 @@
 
 
 
-    <div id="success">
-        <div id="artistName"></div>
-        <br>
-        <div id="topAlbum5img"></div>
-        
-        <p>Top Five Tracks</p>   
-        <div id="topTrack1"></div>
-        <div id="topTrack2"></div>
-        <div id="topTrack3"></div>
-        <div id="topTrack4"></div>
-        <div id="topTrack5"></div>
-
-        <p>Top Five Albums</p>   
-        <div id="topAlbum1"></div>
-        <div id="topAlbum2"></div>
-        <div id="topAlbum3"></div>
-        <div id="topAlbum4"></div>
-        <div id="topAlbum5"></div>
-        <p> Last FM Playback Stats</p>
-        <div id="artistListeners"></div>
-        <div id="artistPlaycount"></div>
-        <p>Guitarist Biography</p>
-        <div id="artistBio"></div>
-
-
-        <p>Bands and Simlar Artists</p>   
-        <div id="similar1"></div>
-        <div id="similar2"></div>
-        <div id="similar3"></div>
-        <div id="similar4"></div>
-        <div id="similar5"></div>
-      
-    </div>
-    <div id="error"></div>
-<br>
-
-    <div id="success1">
-     
-      
-    </div>
-    <div id="error1"></div>
-
-
-<script>
-
-$(document).ready(function() {
-  var api_key = process.env.API_KEY;
-
-
-$('#find-gtr').on("click", function (event) {
-    event.preventDefault();
-    var inputGtr = $("#gtr-input").val().trim();
-    console.log("This is the search result: " + inputGtr);
 
 
 
-   $.ajax({
-    type: 'POST',
-    url: 'http://ws.audioscrobbler.com/2.0/',
-    data: 'method=artist.getinfo&' +
-      'artist='+inputGtr+'&' +
-      api_key +
-      'format=json',
-    dataType: 'jsonp',
-    success: function (data) {
-      console.log(data)
-      $('#success #artistName').html(data.artist.name);
-      $("#stats").html(" Last FM Playback Stats")
-      $('#success #artistListeners').html("The Number of Listeners is " + data.artist.stats.listeners);
-      $('#success #artistPlaycount').html("The Artist Playcount is " + data.artist.stats.playcount);
-      $("#bio").html("Guitarist Biography")
-      $('#success #artistBio').html(data.artist.bio.content);
-    },
-    error: function (code, message) {
-      $('#error').html('Error Code: ' + code + ', Error Message: ' + message);
-    }
-  });
-//lastFm API call to get the top five most popular tracks
-  $.ajax({
-    type: 'POST',
-    url: 'http://ws.audioscrobbler.com/2.0/',
-    data: 'method=artist.gettoptracks&' + 'artist='+inputGtr+'&' + api_key + 'format=json',
-    dataType: 'jsonp',
-    success: function (data) {
-      $("#topTracks").html("Top Five Tracks")
-      $('#success #topTrack1').html("The 1st Most Popular Track is " + data.toptracks.track[0].name + " with a playcount of " + data.toptracks.track[0].playcount + " and " + data.toptracks.track[0].listeners + " listeners");
-      $('#success #topTrack2').html("The 2nd Most Popular Track is " + data.toptracks.track[1].name);
-      $('#success #topTrack3').html("The 3rd Most Popular Track is " + data.toptracks.track[2].name);
-      $('#success #topTrack4').html("The 4th Most Popular Track is " + data.toptracks.track[3].name);
-      $('#success #topTrack5').html("The 5th Most Popular Track is " + data.toptracks.track[4].name);
-
-      console.log(data)
-      console.log(data.toptracks.track[0].name);
-      console.log("Most Popular Track is " + data.toptracks.track[0].name + " with a playcount of " + data.toptracks.track[0].playcount + " an " + data.toptracks.track[0].listeners + " listeners");
-
-
-    },
-    error: function (code, message) {
-      $('#error').html('Error Code: ' + code + ', Error Message: ' + message);
-    }
-  });
-
-
-//lastFm API call to get top five albums
-  $.ajax({
-    type: 'POST',
-    url: 'http://ws.audioscrobbler.com/2.0/',
-    data: 'method=artist.gettopalbums&' + 'artist=' + inputGtr + '&' + api_key + 'format=json',
-    dataType: 'jsonp',
-    success: function (data) {
-      $("#topAlbums").html("Top Five Albums")
-      $('#success #topAlbum1').html("The 1st Most Popular Album is " + data.topalbums.album[0].name);
-      $('#success #topAlbum2').html("The 2nd Most Popular Album is " + data.topalbums.album[1].name);
-      $('#success #topAlbum3').html("The 3rd Most Popular Album is " + data.topalbums.album[2].name);
-      $('#success #topAlbum4').html("The 4th Most Popular Album is " + data.topalbums.album[3].name);
-      $('#success #topAlbum5').html("The 5th Most Popular Album is " + data.topalbums.album[4].name);
-      $('#success #topAlbum5img').html('<img src="' + data.topalbums.album[0].image[2]['#text'] + '" />');
-      console.log(data)
-      console.log(data.topalbums.album[0].name);
-      console.log("Most Poplular Album is " + data.topalbums.album[0].name + " with a playcount of " + data.topalbums.album[0].playcount);
-      console.log(data.topalbums.album[0].image[2]['#text'])
-    },
-    error: function (code, message) {
-      $('#error').html('Error Code: ' + code + ', Error Message: ' + message);
-    }
-  });
-
-  
-
-  $.ajax({
-    type : 'POST',
-    url : 'http://ws.audioscrobbler.com/2.0/',
-    data : 'method=artist.getsimilar&' +
-           'artist='+inputGtr+'&' +
-           api_key +
-           'format=json',
-    dataType : 'jsonp',
-    success : function(data) {
-      $("#bands").html("Bands and Simlar Artists")
-         $('#success #similar1').html("Other Bands The Guitarist Was In or Artists Associated with them are " 
-         + data.similarartists.artist[0].name + ', '
-         + data.similarartists.artist[1].name + ', '
-         + data.similarartists.artist[2].name + ', '
-         + data.similarartists.artist[3].name + ' and '
-         + data.similarartists.artist[4].name)
-     
-
-        console.log(data)
-        console.log(data.similarartists.artist[0].name);
-        
-    },
-    error : function(code, message){
-        $('#error').html('Error Code: ' + code + ', Error Message: ' + message);            
-    }
-});
-
-
-
-});
-
-
-
-
-
-    
-    
-    
-
-</script>
-
-</body>
-</html>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/logicgtr.js"></script>

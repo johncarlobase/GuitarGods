@@ -3,28 +3,23 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Guitarist.findAll({})
-    .then(function(dbGuitarist) {
+    db.Guitarist.findAll({}).then(function(dbGuitarist) {
+      // console.log(dbGuitarist);
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbGuitarist
+        msg: "Guitar Gods",
+        artist: dbGuitarist
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/guitarist/:id", function(req, res) {
-    db.Guitarist.findOne({ where: { id: req.params.id } })
-    .then(function(dbGuitarist) {
-      res.render("Guitarist", {
-        example: dbGuitarist
-      });
-    });
+  app.get("/add", function(req, res) {
+    // console.log(dbGuitarist);
+    res.render("add");
   });
 
   app.get("/all", function(req, res) {
-    
     // console.log(dbGuitarist);
+
      res.render("all")
 
  });
@@ -33,6 +28,12 @@ module.exports = function(app) {
     
   // console.log(dbGuitarist);
    res.render("lastFm")
+  });
+  
+  app.get("/update", function(req, res) {
+    
+    // console.log(dbGuitarist);
+     res.render("update")
 
 });
 
@@ -49,14 +50,9 @@ module.exports = function(app) {
 
 
 
+
+  app.get("/lastFm", function(req, res) {
+    // console.log(dbGuitarist);
+    res.render("lastFm");
+  });
 };
-
-
-
-
-
-
-
-
-
-  
