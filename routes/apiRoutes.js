@@ -2,11 +2,17 @@ var db = require("../models");
 
 module.exports = function(app) {
   //API ROUTE WORKS Get all guitarists
-  app.get("/api/guitarist", function(req, res) {
-    db.Guitarist.findAll().then(function(dbGuitarist) {
-      res.json(dbGuitarist);
-    });
-  });
+  // app.get("/api/guitarist", function(req, res) {
+  //   db.Guitarist.findAll().then(function(dbGuitarist) {
+  //     res.json(dbGuitarist);
+  //   });
+  // });
+
+  app.get('/api/guitarist', (req, res) => {
+    db.Guitarist.findAll({ order: [['position', 'ASC']] }).then(dbGuitarist =>
+        res.json(dbGuitarist)
+    )
+})
 
   //API ROUTE WORKS Create a new guitarist
   app.post("/api/guitarist", function(req, res) {
@@ -19,24 +25,21 @@ module.exports = function(app) {
   //API ROUTE WORKS Delete an gutiarist by id
 
   app.delete("/api/guitarist/id/:id", function(req, res) {
-    db.Guitarist.destroy({ where: { id: req.params.id } })
-    .then(function(dbGuitarist) {
-
+    db.Guitarist.destroy({ where: { id: req.params.id } }).then(function(
+      dbGuitarist
+    ) {
       res.json(dbGuitarist);
     });
   });
   //NEW API ROUTES*********************************************************************************
 
-
-// API ROUTE WORKS Get route for retrieving a specific guitarist 
-app.get("/api/guitarist/id/:id?", function(req, res) {
-  db.Guitarist.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(function(dbPost) {
-
+  // API ROUTE WORKS Get route for retrieving a specific guitarist
+  app.get("/api/guitarist/id/:id?", function(req, res) {
+    db.Guitarist.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
@@ -107,7 +110,6 @@ app.get("/api/guitarist/id/:id?", function(req, res) {
         guitarist: req.body.guitarist,
         genre: req.body.genre,
         band: req.body.band
-
       }
     }).then(function(dbGuitarist) {
       res.json(dbGuitarist);

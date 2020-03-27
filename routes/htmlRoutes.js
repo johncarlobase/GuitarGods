@@ -20,29 +20,18 @@ module.exports = function(app) {
   app.get("/all", function(req, res) {
     // console.log(dbGuitarist);
 
-     res.render("all")
-
- });
-
- app.get("/lastFm", function(req, res) {
-    
-  // console.log(dbGuitarist);
-   res.render("lastFm")
+    res.render("all");
   });
-  
-  app.get("/update", function(req, res) {
-    
+
+  app.get("/lastFm", function(req, res) {
     // console.log(dbGuitarist);
-     res.render("update")
+    res.render("lastFm");
+  });
 
-});
-
-
-
-
-
-
-
+  app.get("/update", function(req, res) {
+    // console.log(dbGuitarist);
+    res.render("update");
+  });
 
   app.get("/lastFm", function(req, res) {
     // console.log(dbGuitarist);

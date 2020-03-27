@@ -21,22 +21,38 @@ font-family: 'UnifrakturMaguntia', cursive;
   color:white;
 }
 
+.card-header{
+  background-color: black;
+  color: #55aac4;
+
+}
+ .card {
+  color: #55aac4;
+  background: transparent;
+  font-weight: bold;
+  text-align: left;
+}
 
 .jumbotron{
 background: transparent;
 padding: 32px 32px;
+text-align: center;
 }
 .wrapper{ 
   margin:  auto 0;
 }
 
-span{
+#title{
+  
   display: block;
   background-image: url(/images/AdobeStock_129467694.jpeg);
   -webkit-background-clip: text; 
   -webkit-text-fill-color:transparent;
   -webkit-animation:fire 8s linear infinite;
   -webkit-backface-visibility: hidden;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: red;
+  font-size: 200px;
 }
 
 @keyframes fire {
@@ -48,16 +64,103 @@ span{
   text-align: center;
 }
 
-.card-header{
-background-color: darkkhaki;
-font-weight: bold;
 
-}
 
 .hide-alert {
   display: none;
 }
 
-body{
+body {
+  background-color: black;
   background-image: url(/images/gtrs.PNG);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: inherit;
+  position: relative;
+}
+
+.form-control, #gtr-input{
+  background-color: gray;
+  color: yellow;
+}
+
+h3 {
+  color: white;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  font-weight: bolder;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: yellow;
+  font-size: 30px;
+  
+}
+
+h5 {
+  font-size: 35px;
+  font-weight: bold;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: yellow;
+  text-shadow: 2px 2px;
+}
+
+#subtitle {
+  color: red;
+  font-size: 24px;
+}
+
+.delete {
+  background-color: black;
+  color: red;
+  font-size: 10px;
+}
+
+#success {
+  color: #55aac4;
+  font-size: 18px;
+  text-align: justify;
+  background-color: b;
+}
+
+.card-add {
+  margin-left: 220px;
+}
+
+#add-btn, #search-btn, #guitar-search-btn, #band-search-btn, #genre-search-btn, #find-gtr{
+  background-color: #55aac4;
+}
+
+.form-group {
+  color: #55aac4;
+}
+
+#find-gtr {
+  color: white;
+}
+
+#artistBio{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 2px;
+  color: #55aac4;
+  background-color: black;
+}
+
+.row-all{
+  background-image: url(/images/Gtr9.jpg);
+  background-position: 50% 50%;
+  background-repeat: repeat;
+  background-size: inherit;
+  position: relative;
+}
+ .card-body-lastfm, #stats, #success-lastfm{
+  background-color: black;
+  color: #55aac4;
+  font-size: 18px;
+  text-align: justify;
+  padding: 25px;
+}
+
+.hide-alert {
+  text-align: center;
+  background-color: darkcyan;
+  color: white;
 }
