@@ -50,6 +50,9 @@ text-align: center;
   -webkit-text-fill-color:transparent;
   -webkit-animation:fire 8s linear infinite;
   -webkit-backface-visibility: hidden;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: red;
+  font-size: 200px;
 }
 
 @keyframes fire {
@@ -154,4 +157,10 @@ h5 {
   font-size: 18px;
   text-align: justify;
   padding: 25px;
+}
+
+.hide-alert {
+  text-align: center;
+  background-color: darkcyan;
+  color: white;
 }
