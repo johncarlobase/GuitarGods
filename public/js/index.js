@@ -119,7 +119,7 @@ $(document).ready(function () {
       div.append("<p>Guitarist: " + data.guitarist + "</p>");
       div.append("<p>Genre: " + data.genre + "</p>");
       div.append("<p>Band: " + data.band + "</p>");
-      div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
+      div.append("<button class='delete' data-id='del" + data.id + "'>DELETE PLAYER</button>");
       $("#stats").append(div);
     }
   }
@@ -138,4 +138,4 @@ $(document).ready(function () {
     $(this).closest("div").remove();
 
   });
-})
+
