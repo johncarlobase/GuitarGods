@@ -14,7 +14,7 @@ module.exports = function(app) {
     });
   });
   // Delete an gutiarist by id
-  app.delete("/api/guitarist/:id", function(req, res) {
+  app.delete("/api/guitarist/id/:id", function(req, res) {
     db.Guitarist.destroy({ where: { id: req.params.id } })
     .then(function(dbGuitarist) {
       res.json(dbGuitarist);
@@ -91,7 +91,7 @@ app.post("/api/guitarist", function(req, res) {
     });
 });
 // PUT route for updating guitarists
-app.put("/api/guitarist", function(req, res) {
+app.put("/api/guitarist/position/:position", function(req, res) {
   db.Guitarist.update(req.body,
     {
       where: {

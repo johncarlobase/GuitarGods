@@ -2,7 +2,7 @@
 /// When user clicks add-btn
 $("#add-btn").on("click", function(event) {
   event.preventDefault();
-alert("test!");
+  
  // Make a newBook object
   var newPlayer = {
     position: $("#position").val().trim(),

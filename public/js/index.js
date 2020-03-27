@@ -102,35 +102,38 @@ $(document).ready(function () {
 });
 
 
-  function renderGuitarist(data) {
-    if (data.length !== 0) {
+function renderGuitarist(data) {
+  if (data.length !== 0) {
 
-      $("#stats").show();
+    $("#stats").show();
 
-      var div = $("<div>");
+    var div = $("<div>");
 
-      //div.append("<h2>" + data.position + "</h2>");/
-      div.append("<p>Rank: " + data.position + "</p>");
-      div.append("<p>Guitarist: " + data.guitarist + "</p>");
-      div.append("<p>Genre: " + data.genre + "</p>");
-      div.append("<p>Band: " + data.band + "</p>");
-      div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
-      $("#stats").append(div);
-    }
+    //div.append("<h2>" + data.position + "</h2>");/
+    div.append("<p>Rank: " + data.position + "</p>");
+    div.append("<p>Guitarist: " + data.guitarist + "</p>");
+    div.append("<p>Genre: " + data.genre + "</p>");
+    div.append("<p>Band: " + data.band + "</p>");
+    div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
+    $("#stats").append(div);
+
+    $(".delete").click(function () {
+
+      $.ajax({
+          method: "DELETE",
+          url: "/api/guitarist/id/" + $(this).attr("data-id")
+        })
+        // On success, run the following code
+        .then(function () {
+          console.log("Deleted Successfully!");
+        });
+  
+      $(this).closest("div").remove();
+  
+    });
   }
+}
 
-  $(".delete").click(function () {
+  
 
-    $.ajax({
-        method: "DELETE",
-        url: "/api/player/" + $(this).attr("data-id")
-      })
-      // On success, run the following code
-      .then(function () {
-        console.log("Deleted Successfully!");
-      });
-
-    $(this).closest("div").remove();
-
-  });
 
