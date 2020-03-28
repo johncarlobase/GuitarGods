@@ -124,6 +124,8 @@ function renderGuitarist(data) {
     div.append("<p>Genre: " + data.genre + "</p>");
     div.append("<p>Band: " + data.band + "</p>");
     div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
+    //div.append("<br>");
+    div.append("<button class='update' data-id='" + data.id + "'>UPDATE PLAYER</button>");
     $("#stats").append(div);
     $(".delete").click(function () {
       $.ajax({
@@ -133,6 +135,17 @@ function renderGuitarist(data) {
         // On success, run the following code
         .then(function () {
           console.log("Deleted Successfully!");
+        });
+      $(this).closest("div").remove();
+    });
+    $(".update").click(function () {
+      $.ajax({
+          method: "PUT",
+          url: "/api/guitarist/id/" + $(this).attr("data-id")
+        })
+        // On success, run the following code
+        .then(function () {
+          console.log("Updated Successfully!");
         });
       $(this).closest("div").remove();
     });
