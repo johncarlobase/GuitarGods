@@ -33,8 +33,7 @@ module.exports = function(app) {
     res.render("update");
   });
 
-  app.get("/lastFm", function(req, res) {
-    // console.log(dbGuitarist);
-    res.render("lastFm");
+  app.get("/media", function(req, res) {
+    res.render("media");
   });
 };
