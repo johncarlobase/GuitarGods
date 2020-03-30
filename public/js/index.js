@@ -131,6 +131,7 @@ function renderGuitarist(data) {
     $(".submit").hide();
     $("#stats").append(div);
     $(".delete").click(function () {
+      if(confirm("Are you sure you want to delete?")) {
       $.ajax({
           method: "DELETE",
           url: "/api/guitarist/id/" + $(this).attr("data-id")
@@ -140,6 +141,8 @@ function renderGuitarist(data) {
           console.log("Deleted Successfully!");
         });
       $(this).closest("div").remove();
+      }
+      return false;
     });
     $(".update").click(function() {
       $("input.editPosition").show();
@@ -163,23 +166,6 @@ function renderGuitarist(data) {
       $(".submit").hide();
       $(".hideStat").show();
     });
-
-
-    
-    //$(".submit").on("click", function(event) {
-      //alert("Submit button works");
-      //event.preventDefault();
-
-      
-
-      //console.log(editPlayer);
-      //$.post("/api/guitarist/id/" + $(this).attr("data-id"), editPlayer)
-      //.then(function(data) {
-      //  console.log(data);
-      //})
-      //$("#stats").show();
-    //});
-
 
     $(".submit").click(function () {
       var editPlayer = {

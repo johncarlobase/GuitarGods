@@ -73,6 +73,7 @@ $(document).ready(function() {
       $(this).closest("div").remove();
     });
     $(".delete").click(function () {
+      if(confirm("Are you sure you want to delete?")) {
       $.ajax({
           method: "DELETE",
           url: "/api/guitarist/id/" + $(this).attr("data-id")
@@ -82,6 +83,8 @@ $(document).ready(function() {
           console.log("Deleted Successfully!");
         });
       $(this).closest("div").remove();
+      }
+      return false;
     });
   });
 });
