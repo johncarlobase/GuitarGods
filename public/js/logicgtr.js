@@ -85,7 +85,7 @@ $('#find-gtr').on("click", function (event) {
 //lastFm API call to get Artist Name, Listeners, Playcount and Artist Bio
 $.ajax({
   type: 'POST',
-  url: 'http://ws.audioscrobbler.com/2.0/',
+  url: 'https://ws.audioscrobbler.com/2.0/',
   data: 'method=artist.getinfo&' +
     'artist='+inputGtr+'&' +
     'api_key=57ee3318536b23ee81d6b27e36997cde&' +
@@ -107,7 +107,7 @@ $.ajax({
 //lastFm API call to get the top five most popular tracks
 $.ajax({
   type: 'POST',
-  url: 'http://ws.audioscrobbler.com/2.0/',
+  url: 'https://ws.audioscrobbler.com/2.0/',
   data: 'method=artist.gettoptracks&' +
     'artist='+inputGtr+'&' +
     'api_key=57ee3318536b23ee81d6b27e36997cde&' +
@@ -136,7 +136,7 @@ $.ajax({
 //lastFm API call to get top five albums
 $.ajax({
   type: 'POST',
-  url: 'http://ws.audioscrobbler.com/2.0/',
+  url: 'https://ws.audioscrobbler.com/2.0/',
   data: 'method=artist.gettopalbums&' +
     'artist='+inputGtr+'&' +
     'api_key=57ee3318536b23ee81d6b27e36997cde&' +
@@ -164,7 +164,7 @@ $.ajax({
 
 $.ajax({
   type : 'POST',
-  url : 'http://ws.audioscrobbler.com/2.0/',
+  url : 'https://ws.audioscrobbler.com/2.0/',
   data : 'method=artist.getsimilar&' +
          'artist='+inputGtr+'&' +
          'api_key=57ee3318536b23ee81d6b27e36997cde&' +
