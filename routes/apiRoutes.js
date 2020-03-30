@@ -1,13 +1,21 @@
 var db = require("../models");
-module.exports = function (app) {
-  // Get all guitarists
-  app.get("/api/guitarist", function (req, res) {
-    db.Guitarist.findAll().then(function (dbGuitarist) {
-      res.json(dbGuitarist);
-    });
-  });
-  // Create a new guitarist
-  app.post("/api/guitarist", function (req, res) {
+
+module.exports = function(app) {
+  //API ROUTE WORKS Get all guitarists
+  // app.get("/api/guitarist", function(req, res) {
+  //   db.Guitarist.findAll().then(function(dbGuitarist) {
+  //     res.json(dbGuitarist);
+  //   });
+  // });
+
+  app.get('/api/guitarist', (req, res) => {
+    db.Guitarist.findAll({ order: [['position', 'ASC']] }).then(dbGuitarist =>
+        res.json(dbGuitarist)
+    )
+})
+
+  //API ROUTE WORKS Create a new guitarist
+  app.post("/api/guitarist", function(req, res) {
     console.log(req.body);
     db.Guitarist.create(req.body).then(function (dbGuitarist) {
       res.json(dbGuitarist);
@@ -16,27 +24,24 @@ module.exports = function (app) {
 
   //API ROUTE WORKS Delete an gutiarist by id
 
-  app.delete("/api/guitarist/id/:id", function (req, res) {
-    db.Guitarist.destroy({ where: { id: req.params.id } })
-      .then(function (dbGuitarist) {
-
-        res.json(dbGuitarist);
-      });
+  app.delete("/api/guitarist/id/:id", function(req, res) {
+    db.Guitarist.destroy({ where: { id: req.params.id } }).then(function(
+      dbGuitarist
+    ) {
+      res.json(dbGuitarist);
+    });
   });
   //NEW API ROUTES*********************************************************************************
 
-
-  // API ROUTE WORKS Get route for retrieving a specific guitarist 
-  app.get("/api/guitarist/id/:id?", function (req, res) {
+  // API ROUTE WORKS Get route for retrieving a specific guitarist
+  app.get("/api/guitarist/id/:id?", function(req, res) {
     db.Guitarist.findOne({
       where: {
         id: req.params.id
       }
-    })
-      .then(function (dbPost) {
-
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   //APIT ROUTE WORKS Get route for retrieving a guitarist of a specific rank
@@ -99,7 +104,7 @@ module.exports = function (app) {
 
   // PUT route for updating guitarists
   app.put("/api/guitarist/id/:id", function (req, res) {
-    
+    console.log(req.body);
     db.Guitarist.update(
     {
       position: req.body.position,
@@ -108,7 +113,7 @@ module.exports = function (app) {
       band: req.body.band
     },
       {
-        where: { id: req.body.id }
+        where: {id: req.params.id}
       }
     ).then(function (dbGuitarist) {
         res.json(dbGuitarist);

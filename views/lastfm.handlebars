@@ -2,18 +2,18 @@
 
         <div class="jumbotron">
           <h1 id = "title">Guitar Gods</h1>
-      <h3 id = "subtitle" >GUITARS GUITARS GUITARS!</h3>
+      <h3 id = "subtitle" >TOP GIUITARISTS!</h3>
       <hr>
       <div class="clicks">
-      <a href="/" class="btn btn-danger btn-lg">
-        <span class="fa fa-eye"></span> Search GTR Players</a>
-      <a href="/add" class="btn btn-danger btn-lg">
+      <a href="/" class="btn btn-info btn-md  ml-3">
+        <span class="fa fa-eye"></span> Search Guitar Players</a>
+      <a href="/add" class="btn btn-info btn-md  ml-3">
         <span class="fa fa-plus"></span> Add New Player</a>
-      <a href="/all" class="btn btn-danger btn-lg">
-        <span class="fa fa-th-list"></span> All Guitarists</a>
-      <a href="/lastfm" class="btn btn-danger btn-lg">
+      <a href="/all" class="btn btn-info btn-md  ml-3">
+        <span class="fa fa-th-list"></span> All Guitar Players</a>
+      <a href="/lastfm" class="btn btn-info btn-md  ml-3">
         <span class="fa fa-th-list"></span> Last Fm</a>
-      <a href="/update" class="btn btn-danger btn-lg">
+      <a href="/update" class="btn btn-info btn-md  ml-3">
         <span class="fa fa-th-list"></span> Update</a>
     </div>
         </div>
@@ -41,12 +41,12 @@
         <div class="col-6 bg">
 
         <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header ">
                 <h3>Player Search Results</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body ">
                 <div class="well" id="stats">
-                    <h2 id="position">Guitarist:</h2>
+                    <h5 id="position">Guitarist:</h5>
                     <div>
                         <h6>
                             <strong>Player</strong>
@@ -69,14 +69,13 @@
 
 <!--Last Fm CODE ***************************************************************************************************************************************-->
 
-         <div class="col bg-warning">
+         <div class="col bg-info">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body-lastfm">
                     <h4 class="card-title">Search for Guitarist</h4>
                     <!-- This form will be where users input data about the guitarists -->
                     <form id="gtr-form" action="display.html" method="GET">
-                        <label for="gtr-input" name="serial number" id="input">We want to be able to Search for a
-                            particular Guitarist</label>
+                        <label for="gtr-input" name="serial number" id="input">Get to know more about a player</label>
                         <input type="text" id="gtr-input">
                         <!-- This button will trigger our AJAX call -->
                         <input id="find-gtr" type="submit" value="Search">
@@ -87,7 +86,7 @@
         </div>
 
         <div class=container>
-            <div id="success">
+            <div id="success-lastfm">
                <strong> <div id="artistName"></div></strong>
                 <br>
                 <div id="topAlbum5img"></div>
