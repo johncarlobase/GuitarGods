@@ -32,6 +32,7 @@ https://ggods.herokuapp.com/
 + jquery
 + ajax
 + API lastFM
++ Deezer
 
 **Acknowledgements**
 ---
