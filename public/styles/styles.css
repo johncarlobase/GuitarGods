@@ -107,7 +107,7 @@ h5 {
   font-size: 24px;
 }
 
-.delete {
+.delete, .update, .cancel, .submit {
   background-color: black;
   color: red;
   font-size: 10px;
@@ -171,6 +171,13 @@ h5 {
   text-align: center;
   background-color: darkcyan;
   color: white;
+}
+
+.editPosition, .editGuitarist, .editGenre, .editBand {
+  display: block;
+  margin: 10px;
+  background-color: dimgrey;
+  color: yellow;
 }
 
 
