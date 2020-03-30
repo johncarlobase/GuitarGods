@@ -21,6 +21,25 @@ $(document).ready(function() {
       $("#book-well-" + i).append("<h3>Player: " + data[i].guitarist + "</h4>");
       $("#book-well-" + i).append("<h3>Genre: " + data[i].genre + "</h4>");
       $("#book-well-" + i).append("<h3>band: " + data[i].band + "</h4>");
+      $("#book-well-" + i).append(`<input value="${data[i].position}" type='number' class='editPosition' style='display: none;'>`);
+      $("#book-well-" + i).append(`<input value="${data[i].guitarist}" type='text' class='editGuitarist' style='display: none;'>`);
+      $("#book-well-" + i).append(`<input value="${data[i].genre}" type='text' class='editGenre' style='display: none;'>`);
+      $("#book-well-" + i).append(`<input value="${data[i].band}" type='text' class='editBand' style='display: none;'>`);
+      $("#book-well-" + i).append("<button class='delete' data-id='" + data[i].id + "'>DELETE PLAYER</button>");
     }
+    $(".delete").click(function () {
+      if(confirm("Are you sure you want to delete?")) {
+      $.ajax({
+          method: "DELETE",
+          url: "/api/guitarist/id/" + $(this).attr("data-id")
+        })
+        // On success, run the following code
+        .then(function () {
+          console.log("Deleted Successfully!");
+        });
+      $(this).closest("div").remove();
+      }
+      return false;
+    });
   });
 });

@@ -23,9 +23,14 @@ module.exports = function(app) {
     res.render("all");
   });
 
-  app.get("/lastFm", function(req, res) {
+  app.get("/lastfm", function(req, res) {
     // console.log(dbGuitarist);
-    res.render("lastFm");
+    res.render("lastfm");
+  });
+
+  app.get("/deezer", function(req, res) {
+    // console.log(dbGuitarist);
+    res.render("deezer");
   });
 
   app.get("/update", function(req, res) {
