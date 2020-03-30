@@ -13,7 +13,7 @@
         <span class="fa fa-th-list"></span> All Guitar Players</a>
       <a href="/lastfm" class="btn btn-info btn-md  ml-3">
         <span class="fa fa-th-list"></span> Last Fm</a>
-     <a href="/deezer" class="btn btn-info btn-md  ml-3">
+      <a href="/deezer" class="btn btn-info btn-md  ml-3">
         <span class="fa fa-th-list"></span> Deezer</a>
       <a href="/update" class="btn btn-info btn-md  ml-3">
         <span class="fa fa-th-list"></span> Update</a>
@@ -76,10 +76,10 @@
          <div class="col bg-info">
             <div class="card">
                 <div class="card-body-lastfm">
-                    <h4 class="card-title">Search LastFm for Guitarist Stats and Info</h4>
+                    <h4 class="card-title">Search Deezer for Guitarist Tracks and Previews</h4>
                     <!-- This form will be where users input data about the guitarists -->
                     <form id="gtr-form" action="display.html" method="GET">
-                        <label for="gtr-input" name="serial number" id="input">Search the Guitarist or Band</label>
+                        <label for="gtr-input" name="serial number" id="input">Search for the Guitarist or Band</label>
                         <input type="text" id="gtr-input">
                         <!-- This button will trigger our AJAX call -->
                         <input id="find-gtr" type="submit" value="Search">
@@ -89,43 +89,23 @@
             </div>
         </div>
 
-        <div class="container hide-alert">
-            <div id="success-lastfm">
-               <strong> <div id="artistName"></div></strong>
-                <br>
-                <div id="topAlbum5img"></div>
+              
+    <div class="container hide-alert">
+      <div class="card-body-lastfm">
 
-                <strong><p id="topTracks"></p></strong>
-                <div id="topTrack1"></div>
-                <div id="topTrack2"></div>
-                <div id="topTrack3"></div>
-                <div id="topTrack4"></div>
-                <div id="topTrack5"></div>
-                <br>
-                 <strong> <p id="topAlbums"></p></strong>
-                <div id="topAlbum1"></div>
-                <div id="topAlbum2"></div>
-                <div id="topAlbum3"></div>
-                <div id="topAlbum4"></div>
-                <div id="topAlbum5"></div>
-                <br>
-                 <strong> <p id="statsFM"></p></strong>
-                <div id="artistListeners"></div>
-                <div id="artistPlaycount"></div>
-                
-                <br>
-
-                 <strong> <p id="bands"></p></strong>
-                <div id="similar1"></div>
-                <div id="similar2"></div>
-                <div id="similar3"></div>
-                <div id="similar4"></div>
-                <div id="similar5"></div>
-
-                <br>
-                 <strong> <p id="bio"></p></strong>
-                <div id="artistBio"></div>
-
+        <div id="success">
+            <div id="topAlbum5img"></div>
+            <div id="artistName"></div>
+            <div id="artistId"></div>
+            <div id="artistLink"></div>
+            <div id="artistTracks"></div>
+            <br>
+        </div>
+        <div id = "success1" ></div>
+           
+           </div>
+           
+           
             </div>
         </div>
 
@@ -139,4 +119,4 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/logicgtr.js"></script>
+<script src="/js/deezer.js"></script>

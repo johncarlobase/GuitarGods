@@ -106,37 +106,84 @@ $(document).ready(function () {
 
 
 
-  function renderGuitarist(data) {
-    if (data.length !== 0) {
-      $("#stats").show();
-      var div = $("<div>");
-      div.addClass("card")
-      div.addClass("card-header")
-      div.addClass("card-bodyDyn")
-      div.append('searchResult').html(" Search Results:")
-      div.append("<p>Rank: " + data.position + "</p>");
-      div.append("<p>Guitarist: " + data.guitarist + "</p>");
-      div.append("<p>Genre: " + data.genre + "</p>");
-      div.append("<p>Band: " + data.band + "</p>");
-      div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
-      $("#stats").append(div);
-      $(".delete").click(function () {
-        $.ajax({
-            method: "DELETE",
-            url: "/api/guitarist/id/" + $(this).attr("data-id")
-          })
-          // On success, run the following code
-          .then(function () {
-            console.log("Deleted Successfully!");
-          });
-        $(this).closest("div").remove();
-      });
-    }
+function renderGuitarist(data) {
+  if (data.length !== 0) {
+    $("#stats").show();
+    var div = $("<div>");
+    div.addClass("card-mb4")
+    div.addClass("card-header")
+    $('.searchResult').html(" Search Results:")
+    div.addClass("card-body")
+    div.append("<p class='hideStat'>Rank: " + data.position + "</p>");
+    div.append("<p class='hideStat'>Guitarist: " + data.guitarist + "</p>");
+    div.append("<p class='hideStat'>Genre: " + data.genre + "</p>");
+    div.append("<p class='hideStat'>Band: " + data.band + "</p>");
+    div.append(`<input value=${data.position} type='number' class='editPosition' style='display: none;'>`);
+    div.append(`<input value="${data.guitarist}" type='text' class='editGuitarist' style='display: none;'>`);
+    div.append(`<input value="${data.genre}" type='text' class='editGenre' style='display: none;'>`);
+    div.append(`<input value="${data.band}" type='text' class='editBand' style='display: none;'>`);
+    div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
+    div.append("<button class='update' data-id='" + data.id + "'>UPDATE PLAYER</button>");
+    div.append("<button class='cancel' style='display: none;' data-id='" + data.id + "'>CANCEL</button>");
+    $(".cancel").hide();
+    div.append("<button class='submit' style='display: none;' data-id='" + data.id + "'>SUBMIT</button>");
+    $(".submit").hide();
+    $("#stats").append(div);
+    $(".delete").click(function () {
+      if(confirm("Are you sure you want to delete?")) {
+      $.ajax({
+          method: "DELETE",
+          url: "/api/guitarist/id/" + $(this).attr("data-id")
+        })
+        // On success, run the following code
+        .then(function () {
+          console.log("Deleted Successfully!");
+        });
+      $(this).closest("div").remove();
+      }
+      return false;
+    });
+    $(".update").click(function() {
+      $("input.editPosition").show();
+      $("input.editGuitarist").show();
+      $("input.editGenre").show();
+      $("input.editBand").show();
+      $(".delete").hide();
+      $(".update").hide();
+      $(".cancel").show();
+      $(".submit").show();
+      $(".hideStat").hide();
+    });
+    $(".cancel").click(function() {
+      $("input.editPosition").hide();
+      $("input.editGuitarist").hide();
+      $("input.editGenre").hide();
+      $("input.editBand").hide();
+      $(".delete").show();
+      $(".update").show();
+      $(".cancel").hide();
+      $(".submit").hide();
+      $(".hideStat").show();
+    });
+
+    $(".submit").click(function () {
+      var editPlayer = {
+        position: $(".editPosition").val().trim(),
+        guitarist: $(".editGuitarist").val().trim(),
+        genre: $(".editGenre").val().trim(),
+        band: $(".editBand").val().trim()
+      };
+      $.ajax({
+          method: "PUT",
+          url: "/api/guitarist/id/" + $(this).attr("data-id"),
+          data: editPlayer
+        })
+        // On success, run the following code
+        .then(function () {
+          console.log("Updated Successfully!");
+        });
+      $(this).closest("div").remove();
+    });
   }
-
-
-
-
-
-}) //Document.Ready closing tag
-
+};  //Document.Ready closing tag
+});

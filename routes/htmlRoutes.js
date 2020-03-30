@@ -28,6 +28,11 @@ module.exports = function(app) {
     res.render("lastFm");
   });
 
+  app.get("/deezer", function(req, res) {
+    // console.log(dbGuitarist);
+    res.render("deezer");
+  });
+
   app.get("/update", function(req, res) {
     // console.log(dbGuitarist);
     res.render("update");

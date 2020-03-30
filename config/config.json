@@ -1,9 +1,16 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "regjktv79lvroz5w",
     "password":"e6luxm9a6spljngx",
     "database": "ym6p1tom089c78o1",
     "host": "qbhol6k6vexd5qjs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+=======
+    "username": "root",
+    "password": "Toshio510!",
+    "database": "guitar_db",
+    "host": "localhost",
+>>>>>>> 8779f4b189efab75405f7ebf90a875793c0d65d2
     "dialect": "mysql"
   },
   "test": {
