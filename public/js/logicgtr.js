@@ -171,6 +171,9 @@ $.ajax({
          'format=json',
   dataType : 'jsonp',
   success : function(data) {
+    if (data) {
+        $(".hide-alert").css("display", "block");
+      }
     $("#bands").html("Bands and Simlar Artists")
        $('#success-lastfm #similar1').html("Other Bands The Guitarist Was In or Artists Associated with them are: " 
        + data.similarartists.artist[0].name + ', '
