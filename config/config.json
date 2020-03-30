@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password":"zoey1222",
-    "database": "guitar_db",
-    "host": "localhost",
+    "username": "regjktv79lvroz5w",
+    "password":"e6luxm9a6spljngx",
+    "database": "ym6p1tom089c78o1",
+    "host": "qbhol6k6vexd5qjs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
