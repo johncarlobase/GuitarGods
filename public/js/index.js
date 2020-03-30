@@ -123,7 +123,6 @@ function renderGuitarist(data) {
     div.append(`<input value="${data.genre}" type='text' class='editGenre' style='display: none;'>`);
     div.append(`<input value="${data.band}" type='text' class='editBand' style='display: none;'>`);
     div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
-    //div.append("<br>");
     div.append("<button class='update' data-id='" + data.id + "'>UPDATE PLAYER</button>");
     div.append("<button class='cancel' style='display: none;' data-id='" + data.id + "'>CANCEL</button>");
     $(".cancel").hide();

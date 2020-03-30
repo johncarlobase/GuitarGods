@@ -164,3 +164,11 @@ h5 {
   background-color: darkcyan;
   color: white;
 }
+
+.editPosition, .editGuitarist, .editGenre, .editBand {
+  display: block;
+  margin: 10px;
+  background-color: dimgrey;
+  color: yellow;
+}
+
