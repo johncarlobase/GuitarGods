@@ -30,8 +30,8 @@ https://ggods.herokuapp.com/
 + heroku
 + bootstrap
 + jquery
-
-
++ ajax
++ API lastFM
 
 **Acknowledgements**
 ---
