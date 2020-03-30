@@ -1,10 +1,12 @@
-![guitar logo](img/gg4.JPEG)
+![screenshot1](img/screenshot1.png)
+![screenshot2](img/screenshot2.png)
+
 
 # GuitarGods
-Is designed for the admitted guitar geek. See all that is in the Rolling Stones List.  Search rank, name, genre, band.   Add your own if you think you can give it more justice!
+Is designed for the admitted guitar geek. See all that is in the Rolling Stones 100 Top Guitarist List.  Search rank, name, genre, band.   Add your own if you think you can give it more justice!
 
 # Heroku
-https://guitargod.herokuapp.com/
+https://ggods.herokuapp.com/
 
 
 
@@ -19,13 +21,17 @@ https://guitargod.herokuapp.com/
 
 **Technologies
 ---
-+ Node
++ node
 + javascript
 + css
 + handlebars
 + sequelize
 + mysql
 + heroku
++ bootstrap
++ jquery
++ ajax
++ API lastFM
 
 **Acknowledgements**
 ---
