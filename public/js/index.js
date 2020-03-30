@@ -119,9 +119,9 @@ function renderGuitarist(data) {
     div.append("<p class='hideStat'>Genre: " + data.genre + "</p>");
     div.append("<p class='hideStat'>Band: " + data.band + "</p>");
     div.append(`<input value=${data.position} type='number' class='editPosition' style='display: none;'>`);
-    div.append(`<input value=${data.guitarist} type='text' class='editGuitarist' style='display: none;'>`);
-    div.append(`<input value=${data.genre} type='text' class='editGenre' style='display: none;'>`);
-    div.append(`<input value=${data.band} type='text' class='editBand' style='display: none;'>`);
+    div.append(`<input value="${data.guitarist}" type='text' class='editGuitarist' style='display: none;'>`);
+    div.append(`<input value="${data.genre}" type='text' class='editGenre' style='display: none;'>`);
+    div.append(`<input value="${data.band}" type='text' class='editBand' style='display: none;'>`);
     div.append("<button class='delete' data-id='" + data.id + "'>DELETE PLAYER</button>");
     //div.append("<br>");
     div.append("<button class='update' data-id='" + data.id + "'>UPDATE PLAYER</button>");
