@@ -142,6 +142,10 @@ h5 {
   background-color: black;
 }
 
+.row1{
+  margin: 0 auto;
+}
+
 .row-all{
   background-image: url(/images/Gtr9.jpg);
   background-position: 50% 50%;
@@ -165,6 +169,8 @@ h5 {
   font-size: 18px;
   text-align: justify;
   padding: 25px;
+  margin: 0 auto;
+
 }
 
 .hide-alert {
