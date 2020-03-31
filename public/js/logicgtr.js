@@ -20,7 +20,7 @@ $(document).ready(function () {
   });
 
   // When user hits the guitar-search-btn
-  $("#guitar-search-btn").on("click", function () {
+  $("#api-search-btn").on("click", function () {
     event.preventDefault();
     // Save the author they typed into the author-search input
     var playerSearched = $("#guitar-search").val().trim();
