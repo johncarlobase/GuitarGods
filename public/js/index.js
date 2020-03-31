@@ -181,6 +181,10 @@ function renderGuitarist(data) {
         // On success, run the following code
         .then(function () {
           console.log("Updated Successfully!");
+
+          if (data) {
+            $(".hide-alert").css("display", "block");
+          }
         });
       $(this).closest("div").remove();
     });
