@@ -24,7 +24,6 @@ font-family: 'UnifrakturMaguntia', cursive;
 .card-header{
   background-color: black;
   color: #55aac4;
-
 }
  .card {
   color: #55aac4;
@@ -125,7 +124,7 @@ h5 {
 }
 
 #add-btn, #search-btn, #guitar-search-btn, #band-search-btn, #genre-search-btn, #find-gtr{
-  background-color: #000;
+  background-color: #55aac4;
 }
 
 .form-group {
@@ -140,6 +139,7 @@ h5 {
   letter-spacing: 2px;
   color: #55aac4;
   background-color: black;
+  text-align: justify;
 }
 
 .row1{
@@ -206,3 +206,16 @@ transform: translateX(-3px);
   box-shadow: 1px 1px #53a7ea, 2px 2px #53a7ea, 3px 3px #53a7ea;
   transform: translateX(-3px);
   }
+
+ 
+
+.row {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+#subtitle{
+  font-size: 54px;
+  color: yellow;
+  font-weight: bold;
+}
