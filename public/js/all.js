@@ -20,7 +20,7 @@ $(document).ready(function() {
       $("#book-well-" + i).append("<h5>" + data[i].position + "</h5>");
       $("#book-well-" + i).append("<h3>Player: " + data[i].guitarist + "</h4>");
       $("#book-well-" + i).append("<h3>Genre: " + data[i].genre + "</h4>");
-      $("#book-well-" + i).append("<h3>band: " + data[i].band + "</h4>");
+      $("#book-well-" + i).append("<h3>Band: " + data[i].band + "</h4>");
       $("#book-well-" + i).append(`<input value="${data[i].position}" type='number' class='editPosition' style='display: none;'>`);
       $("#book-well-" + i).append(`<input value="${data[i].guitarist}" type='text' class='editGuitarist' style='display: none;'>`);
       $("#book-well-" + i).append(`<input value="${data[i].genre}" type='text' class='editGenre' style='display: none;'>`);
